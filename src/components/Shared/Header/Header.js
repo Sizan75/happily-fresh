@@ -74,7 +74,7 @@ const Header = () => {
                             <NavLink to="/courses">  </NavLink>
                         </li>
                         <li className="text-gray-600 font-semibold hover:text-sky-600">
-                            <NavLink to="/Blog">Blog</NavLink>
+                            <NavLink to="/blogs">Blog</NavLink>
                         </li>
                         <li className="text-gray-600 font-semibold hover:text-sky-600">
                             <NavLink to="/faq"> </NavLink>
