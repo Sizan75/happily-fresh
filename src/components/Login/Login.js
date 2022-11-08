@@ -1,18 +1,32 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import login from '../../assets/login/signup.png'
 import { FcGoogle } from "react-icons/fc";
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import {GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
-    const handleGoogleSignIn = () =>{
+    const {singInGoogle} = useContext(AuthContext)
+    const googleProvider = new GoogleAuthProvider()
+    const navigate = useNavigate()
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/'
 
-    }
     const handleSubmit = event =>{
         event.preventDefault();
         const form=event.target;
         const email= form.email.value;
         const password= form.password.value;
 
+    }
+    const handleGoogleSignIn = () => {
+        singInGoogle(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                navigate(from, { replace: true })
+            })
+            .catch(error => console.error(error))
     }
     return (
         <div>
