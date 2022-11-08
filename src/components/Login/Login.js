@@ -7,7 +7,7 @@ const Login = () => {
     const handleGoogleSignIn = () =>{
 
     }
-    const handleLogin = event =>{
+    const handleSubmit = event =>{
         event.preventDefault();
         const form=event.target;
         const email= form.email.value;

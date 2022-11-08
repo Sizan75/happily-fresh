@@ -1,10 +1,42 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import signup from '../../assets/login/signup.png'
-
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import {GoogleAuthProvider } from 'firebase/auth';
 const SignUp = () => {
+    const { createUser, singInGoogle, } = useContext(AuthContext)
+    // const googleProvider = new GoogleAuthProvider()
+    const navigate = useNavigate()
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/'
 
+    const handleSubmit = event => {
+        event.preventDefault();
+        const form = event.target;
+        const displayName = form.displayName.value;
+        const photoURL = form.photoURL.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password, photoURL, displayName)
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                form.reset();
+            })
+            .catch(error => console.error(error))
+
+    }
+    // const handleGoogleSignIn = () => {
+    //     singInGoogle(googleProvider)
+    //         .then(result => {
+    //             const user = result.user;
+    //             console.log(user)
+    //             navigate(from, { replace: true })
+    //         })
+    //         .catch(error => console.error(error))
+    // }
     
     
     return (
@@ -21,13 +53,13 @@ const SignUp = () => {
                                 <label className="label">
                                     <span className="label-text">User Name</span>
                                 </label>
-                                <input type="text" name='name' placeholder="user name" className="input input-bordered input-info w-full max-w-xs" />
+                                <input type="text" name='displayName' placeholder="user name" className="input input-bordered input-info w-full max-w-xs" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Image URL</span>
                                 </label>
-                                <input type="text" name='imageURL' placeholder="Image URL" className="input input-bordered input-info w-full max-w-xs" />
+                                <input type="text" name='photoURL' placeholder="Image URL" className="input input-bordered input-info w-full max-w-xs" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
