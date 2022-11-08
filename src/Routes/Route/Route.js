@@ -4,9 +4,10 @@ import Home from "../../components/Home/Home/Home";
 import Main from "../../layout/Main/Main";
 import ErrorPage from '../../components/ErrorPage/ErrorPage'
 import AllFoodServices from "../../components/FoodServices/AllFoodServices";
-import Food from "../../components/FoodAndReview/Food";
+import FoodAndReview from "../../components/FoodAndReview/FoodAndReview";
 import Login from "../../components/Login/Login";
 import SignUp from "../../components/SignUp/SignUp";
+import PrivateRoutes from "../PrivateRoute/PrivateRoute";
 export const route= createBrowserRouter([
     {
         path:'/',
@@ -35,8 +36,8 @@ export const route= createBrowserRouter([
             },
             {
                 path: '/foodservice/:id',
-                loader:({params})=>fetch(`http://localhost:5000/foodservice/${params.id}`),
-                element: <Food></Food>
+                loader:({params})=>fetch(`http://localhost:5000/foodservices/${params.id}`),
+                element: <FoodAndReview></FoodAndReview>
             }
         ]
     }

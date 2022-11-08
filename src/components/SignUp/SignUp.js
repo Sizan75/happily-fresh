@@ -5,7 +5,7 @@ import signup from '../../assets/login/signup.png'
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import {GoogleAuthProvider } from 'firebase/auth';
 const SignUp = () => {
-    const { createUser, singInGoogle, } = useContext(AuthContext)
+    const { createUser, singInGoogle, updateUserprofile} = useContext(AuthContext)
     const googleProvider = new GoogleAuthProvider()
     const navigate = useNavigate()
     const location = useLocation();
@@ -23,6 +23,7 @@ const SignUp = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
+                handleupdateUserprofile(displayName, photoURL)
                 form.reset();
             })
             .catch(error => console.error(error))
@@ -37,7 +38,18 @@ const SignUp = () => {
             })
             .catch(error => console.error(error))
     }
-    
+    const handleupdateUserprofile = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+        updateUserprofile(profile)
+            .then(() => {
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
     
     return (
         <div>

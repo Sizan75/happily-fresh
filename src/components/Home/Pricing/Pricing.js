@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { FcOk } from "react-icons/fc";
 const Pricing = () => {
     return (
         <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
@@ -25,25 +25,7 @@ const Pricing = () => {
                             <ul className="space-y-2">
                                 <li className="flex items-center">
                                     <div className="mr-2">
-                                        <svg
-                                            className="w-4 h-4 text-deep-purple-accent-400"
-                                            viewBox="0 0 24 24"
-                                            strokeLinecap="round"
-                                            strokeLidth="2"
-                                        >
-                                            <polyline
-                                                fill="none"
-                                                stroke="currentColor"
-                                                points="6,12 10,16 18,8"
-                                            />
-                                            <circle
-                                                cx="12"
-                                                cy="12"
-                                                fill="none"
-                                                r="11"
-                                                stroke="currentColor"
-                                            />
-                                        </svg>
+                                        <FcOk></FcOk>
                                     </div>
                                     <p className="font-medium text-gray-800">
                                         20min Delivary
@@ -51,25 +33,7 @@ const Pricing = () => {
                                 </li>
                                 <li className="flex items-center">
                                     <div className="mr-2">
-                                        <svg
-                                            className="w-4 h-4 text-deep-purple-accent-400"
-                                            viewBox="0 0 24 24"
-                                            strokeLinecap="round"
-                                            strokeLidth="2"
-                                        >
-                                            <polyline
-                                                fill="none"
-                                                stroke="currentColor"
-                                                points="6,12 10,16 18,8"
-                                            />
-                                            <circle
-                                                cx="12"
-                                                cy="12"
-                                                fill="none"
-                                                r="11"
-                                                stroke="currentColor"
-                                            />
-                                        </svg>
+                                        <FcOk></FcOk>
                                     </div>
                                     <p className="font-medium text-gray-800">100tk delivery charge</p>
                                 </li>
@@ -100,25 +64,7 @@ const Pricing = () => {
                             <ul className="space-y-2">
                                 <li className="flex items-center">
                                     <div className="mr-2">
-                                        <svg
-                                            className="w-4 h-4 text-deep-purple-accent-400"
-                                            viewBox="0 0 24 24"
-                                            strokeLinecap="round"
-                                            strokeLidth="2"
-                                        >
-                                            <polyline
-                                                fill="none"
-                                                stroke="currentColor"
-                                                points="6,12 10,16 18,8"
-                                            />
-                                            <circle
-                                                cx="12"
-                                                cy="12"
-                                                fill="none"
-                                                r="11"
-                                                stroke="currentColor"
-                                            />
-                                        </svg>
+                                       <FcOk></FcOk>
                                     </div>
                                     <p className="font-medium text-gray-800">
                                         1hr-1.30hr Delivary
@@ -126,25 +72,7 @@ const Pricing = () => {
                                 </li>
                                 <li className="flex items-center">
                                     <div className="mr-2">
-                                        <svg
-                                            className="w-4 h-4 text-deep-purple-accent-400"
-                                            viewBox="0 0 24 24"
-                                            strokeLinecap="round"
-                                            strokeLidth="2"
-                                        >
-                                            <polyline
-                                                fill="none"
-                                                stroke="currentColor"
-                                                points="6,12 10,16 18,8"
-                                            />
-                                            <circle
-                                                cx="12"
-                                                cy="12"
-                                                fill="none"
-                                                r="11"
-                                                stroke="currentColor"
-                                            />
-                                        </svg>
+                                        <FcOk></FcOk>
                                     </div>
                                     <p className="font-medium text-gray-800">60tk delivery charge</p>
                                 </li>
