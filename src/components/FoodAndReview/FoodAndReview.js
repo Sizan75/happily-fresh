@@ -1,26 +1,27 @@
-import React, { useContext } from 'react';
-import {  useLoaderData } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import { FaUser } from "react-icons/fa";
-const Food = () => {
+const FoodAndReview = () => {
     const food = useLoaderData()
     const { image, _id, title, price, details } = food
     const { user } = useContext(AuthContext)
-    const {email,photoURL}=user
- 
-const handleAddReview =event =>{
-    event.preventDefault()
-    const form=event.target;
-    const review= form.review.value;
 
-    const userReview={
-        review: review,
-        userEmail:email,
-        userPhotoURL:photoURL,
-        foodId:_id
-    }
-    console.log(userReview)
-    fetch('http://localhost:5000/reviews', {
+    const [reviews, setReviews] = useState([])
+
+    const handleAddReview = event => {
+        event.preventDefault()
+        const form = event.target;
+        const review = form.review.value;
+
+        const userReview = {
+            review: review,
+            userEmail: user?.email,
+            userPhotoURL: user?.photoURL,
+            foodId: _id
+        }
+        console.log(userReview)
+        fetch('http://localhost:5000/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -30,15 +31,19 @@ const handleAddReview =event =>{
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                if(data.acknowledged){
-                    alert('Order placed successfully')
+                if (data.acknowledged) {
+
                     form.reset();
-                    
+
                 }
             })
             .catch(er => console.error(er));
-
-}
+    }
+    useEffect(() => {
+        fetch(`http://localhost:5000/reviews?foodId=${_id}`)
+            .then(res => res.json())
+            .then(data => setReviews(data))
+    }, [_id])
 
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 justify-center gap-6 mt-5' >
@@ -59,7 +64,7 @@ const handleAddReview =event =>{
                                 <div>
                                     <div className='flex mb-2'>
                                         {user?.photoURL ?
-                                            <img className="mask mask-circle w-24 " src={user.photoURL} alt="" />
+                                            <img className="mask mask-circle w-24 " src={user?.photoURL} alt="" />
                                             :
                                             <FaUser></FaUser>
                                         }
@@ -67,9 +72,9 @@ const handleAddReview =event =>{
                                     </div>
                                     <form onSubmit={handleAddReview} className='mb-4'>
                                         <textarea name='review' className="textarea textarea-info w-3/4" placeholder="You can give a review of the food here."></textarea>
-                                        
-                                          <button className="btn btn-primary w-1/2 ">Post</button>
-                                        
+
+                                        <button className="btn btn-primary w-1/2 ">Post</button>
+
                                     </form>
                                 </div>
                                 :
@@ -79,7 +84,24 @@ const handleAddReview =event =>{
                         }
                     </div>
                     <div>
+                        {
+                            reviews.map(foodreview =>
+                                <div key={foodreview.foodId}>
+                                    <div className='flex mb-2'>
+                                        {foodreview?.userPhotoURL ?
+                                            <img className="mask mask-circle w-16 " src={foodreview?.userPhotoURL} alt="" />
+                                            :
+                                            <FaUser></FaUser>
+                                        }
+                                        <h2 className=' text-xl ms-2'>{foodreview?.userEmail}</h2>
+                                    </div>
+                                    <div>
+                                        <p className='mx-auto'>review:{foodreview.review}</p>
+                                    </div>
+                                </div>
 
+                            )
+                        }
                     </div>
                 </div>
             </div>
@@ -87,4 +109,4 @@ const handleAddReview =event =>{
     );
 };
 
-export default Food;
+export default FoodAndReview;
