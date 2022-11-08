@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import login from '../../assets/login/signup.png'
 import { FcGoogle } from "react-icons/fc";
@@ -6,18 +6,31 @@ import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import {GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
-    const {singInGoogle} = useContext(AuthContext)
+    const {userLogIn,singInGoogle} = useContext(AuthContext)
     const googleProvider = new GoogleAuthProvider()
     const navigate = useNavigate()
     const location = useLocation();
     const from = location.state?.from?.pathname || '/'
+    const [error, setError] = useState('')
 
-    const handleSubmit = event =>{
+    const handleSubmit = event => {
         event.preventDefault();
-        const form=event.target;
-        const email= form.email.value;
-        const password= form.password.value;
-
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password)
+        userLogIn(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                navigate(from, {replace: true})
+                form.reset()
+                setError('')
+            })
+            .catch(error => {
+                console.error(error)
+                setError(error.message)
+            })
     }
     const handleGoogleSignIn = () => {
         singInGoogle(googleProvider)
@@ -52,6 +65,9 @@ const Login = () => {
                             <label className="label">
                                 <Link to="/signup" className="label-text-alt link link-hover">
                                     Not registered yet? <span className=' text-orange-700'>Sign Up</span></Link>
+                            </label>
+                            <label className='label text-red-500'>
+                            <small>{error}</small>
                             </label>
                         </div>
                         <div className="form-control mt-6">
