@@ -6,7 +6,7 @@ import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import {GoogleAuthProvider } from 'firebase/auth';
 const SignUp = () => {
     const { createUser, singInGoogle, } = useContext(AuthContext)
-    // const googleProvider = new GoogleAuthProvider()
+    const googleProvider = new GoogleAuthProvider()
     const navigate = useNavigate()
     const location = useLocation();
     const from = location.state?.from?.pathname || '/'
@@ -28,15 +28,15 @@ const SignUp = () => {
             .catch(error => console.error(error))
 
     }
-    // const handleGoogleSignIn = () => {
-    //     singInGoogle(googleProvider)
-    //         .then(result => {
-    //             const user = result.user;
-    //             console.log(user)
-    //             navigate(from, { replace: true })
-    //         })
-    //         .catch(error => console.error(error))
-    // }
+    const handleGoogleSignIn = () => {
+        singInGoogle(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                navigate(from, { replace: true })
+            })
+            .catch(error => console.error(error))
+    }
     
     
     return (
