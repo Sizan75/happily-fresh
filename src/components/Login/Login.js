@@ -41,9 +41,9 @@ const Login = () => {
                             </label>
                         </div>
                         <div className="form-control mt-6">
-                            <button onClick={handleLogin} className="btn btn-primary">Log In</button>
-                            <button onClick={handleGoogleSignIn} className="btn btn-outline btn-primary mt-1 text-dark"><FcGoogle></FcGoogle>  Google Sign In</button>
+                            <button className="btn btn-primary">Log In</button>
                         </div>
+                            <button onClick={handleGoogleSignIn} className="btn btn-outline btn-primary mt-1 text-dark"><FcGoogle></FcGoogle>  Google Sign In</button>
                     </form>
                 </div>
             </div>

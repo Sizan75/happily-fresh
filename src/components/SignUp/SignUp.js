@@ -5,9 +5,8 @@ import signup from '../../assets/login/signup.png'
 
 const SignUp = () => {
 
-    const handleGoogleSignIn = () => {
-
-    }
+    
+    
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
@@ -16,7 +15,7 @@ const SignUp = () => {
                         <img src={signup} className='w-3/5 h-3/5 ' alt="" />
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <form className="card-body">
+                        <form onSubmit={handleSubmit} className="card-body">
                             <h4 className='text-xl font-bold'>Sign Up</h4>
                             <div className="form-control">
                                 <label className="label">
@@ -48,8 +47,8 @@ const SignUp = () => {
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">SignUp</button>
-                                <button onClick={handleGoogleSignIn} className="btn btn-outline btn-primary mt-1 text-dark"><FcGoogle></FcGoogle>  Google Sign In</button>
                             </div>
+                                <button onClick={handleGoogleSignIn} className="btn btn-outline btn-primary mt-1 text-dark"><FcGoogle></FcGoogle>  Google Sign In</button>
                         </form>
                     </div>
                 </div>
