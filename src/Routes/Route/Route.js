@@ -4,6 +4,7 @@ import Home from "../../components/Home/Home/Home";
 import Main from "../../layout/Main/Main";
 import ErrorPage from '../../components/ErrorPage/ErrorPage'
 import AllFoodServices from "../../components/FoodServices/AllFoodServices";
+import Food from "../../components/FoodAndReview/Food";
 export const route= createBrowserRouter([
     {
         path:'/',
@@ -21,6 +22,11 @@ export const route= createBrowserRouter([
             {
                 path: '/foodservices',
                 element: <AllFoodServices></AllFoodServices>
+            },
+            {
+                path: '/foodservice/:id',
+                loader:({params})=>fetch(`http://localhost:5000/foodservice/${params.id}`),
+                element: <Food></Food>
             }
         ]
     }
