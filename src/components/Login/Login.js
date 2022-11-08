@@ -7,8 +7,12 @@ const Login = () => {
     const handleGoogleSignIn = () =>{
 
     }
-    const handleLogin = () =>{
-        
+    const handleLogin = event =>{
+        event.preventDefault();
+        const form=event.target;
+        const email= form.email.value;
+        const password= form.password.value;
+
     }
     return (
         <div>
@@ -18,7 +22,7 @@ const Login = () => {
                     <img src={login} className='w-3/5 h-3/5 ' alt="" />
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                    <form className="card-body">
+                    <form onSubmit={handleSubmit} className="card-body">
                         <h3 className='text-xl font-bold'>Log In</h3>
                         <div className="form-control">
                             <label className="label">
