@@ -5,6 +5,8 @@ import Main from "../../layout/Main/Main";
 import ErrorPage from '../../components/ErrorPage/ErrorPage'
 import AllFoodServices from "../../components/FoodServices/AllFoodServices";
 import Food from "../../components/FoodAndReview/Food";
+import Login from "../../components/Login/Login";
+import SignUp from "../../components/SignUp/SignUp";
 export const route= createBrowserRouter([
     {
         path:'/',
@@ -22,6 +24,14 @@ export const route= createBrowserRouter([
             {
                 path: '/foodservices',
                 element: <AllFoodServices></AllFoodServices>
+            },
+            {
+                path: '/login',
+                element: <Login></Login>
+            },
+            {
+                path: '/signup',
+                element: <SignUp></SignUp>
             },
             {
                 path: '/foodservice/:id',
