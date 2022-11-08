@@ -2,6 +2,10 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import { FaUser } from "react-icons/fa";
+
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
+
 const FoodAndReview = () => {
     const food = useLoaderData()
     const { image, _id, title, price, details } = food
@@ -48,7 +52,12 @@ const FoodAndReview = () => {
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 justify-center gap-6 mt-5' >
             <div className="card card-compact w-96 bg-base-100  shadow-xl  mb-5">
-                <img src={image} className='h-64' alt="food" />
+            <PhotoProvider>
+      <PhotoView src={image} className="w-full">
+      <img src={image} className='h-64' alt="food" />
+      </PhotoView>
+    </PhotoProvider>
+                
                 <div className="card-body">
                     <h2 className="card-title">{title}</h2>
                     <p>{details}</p>
