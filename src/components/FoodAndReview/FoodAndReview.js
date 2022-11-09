@@ -49,7 +49,7 @@ const FoodAndReview = () => {
         fetch(`http://localhost:5000/reviews?foodId=${_id}`)
             .then(res => res.json())
             .then(data => setReviews(data))
-    }, [_id])
+    }, [_id,reviews])
 
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 justify-center gap-6 mt-5' >
@@ -82,7 +82,7 @@ const FoodAndReview = () => {
                                         <h2 className='font-semibold text-2xl'>{user?.email}</h2>
                                     </div>
                                     <form onSubmit={handleAddReview} className='mb-4'>
-                                        <textarea name='review' className="textarea textarea-info w-3/4" placeholder="You can give a review of the food here."></textarea>
+                                        <textarea name='review' className="textarea textarea-info w-3/4" placeholder="You can give a review of the food here." required></textarea>
 
                                         <button className="btn btn-primary w-1/2 ">Post</button>
                                         <Toaster

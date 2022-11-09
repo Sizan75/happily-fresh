@@ -9,6 +9,7 @@ import Login from "../../components/Login/Login";
 import SignUp from "../../components/SignUp/SignUp";
 import PrivateRoutes from "../PrivateRoute/PrivateRoute";
 import MyReview from "../../components/MyReview/MyReview";
+import AddFood from "../../components/AddFood/AddFood";
 export const route= createBrowserRouter([
     {
         path:'/',
@@ -30,6 +31,10 @@ export const route= createBrowserRouter([
             {
                 path: '/myreview',
                 element: <PrivateRoutes><MyReview></MyReview></PrivateRoutes>
+            },
+            {
+                path: '/addfood',
+                element: <PrivateRoutes><AddFood></AddFood></PrivateRoutes>
             },
             {
                 path: '/login',

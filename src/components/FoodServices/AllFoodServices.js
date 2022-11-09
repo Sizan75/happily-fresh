@@ -10,7 +10,7 @@ const [allfood, setAllfood]=useState([])
     },[])
     return (
         <div>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-5'>
+            <div className='grid grid-cols-1 mb-5 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-5'>
             
             {
                 allfood.map(food=> <AllFoodCart

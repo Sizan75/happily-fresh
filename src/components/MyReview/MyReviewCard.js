@@ -1,11 +1,11 @@
-import React, { useContext, useState } from 'react';
-import { Toaster } from 'react-hot-toast';
+import React, {  useState } from 'react';
+import toast  from 'react-hot-toast';
 import { FaTimesCircle } from 'react-icons/fa';
-import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+
 
 const MyReviewCard = ({rev,handleDelete}) => {
-    const {review,userEmail,userPhotoURL,foodId,foodName,_id}= rev
-    const {user}=useContext(AuthContext)
+    const {review,userEmail,userPhotoURL,foodName,_id}= rev
+    
 
     const [newrev, setNewRev] = useState(rev);
 
@@ -22,7 +22,7 @@ const MyReviewCard = ({rev,handleDelete}) => {
         .then(res => res.json())
         .then(data => {
             if (data.modifiedCount > 0){
-                alert('review updated')
+                toast.success('review updated successfully')
                 console.log(data);
             }
             
