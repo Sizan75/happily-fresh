@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import useSetTitle from '../../hooks/useSetTitle';
 import AllFoodCart from './AllFoodCart';
 
 const FoodServices = () => {
+    useSetTitle('all-foods')
 const [allfood, setAllfood]=useState([])
     useEffect(()=>{
         fetch('http://localhost:5000/foodservices')

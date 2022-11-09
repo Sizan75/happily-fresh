@@ -1,7 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
-
+import useSetTitle from '../../hooks/useSetTitle';
 const Blog = () => {
+    useSetTitle('blogs')
     const Item = ({ title, children }) => {
         const [isOpen, setIsOpen] = useState(false);
         return (

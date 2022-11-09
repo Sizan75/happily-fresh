@@ -2,8 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
+import useSetTitle from '../../hooks/useSetTitle';
 
 const AllFoodCart = ({ food }) => {
+    useSetTitle('foodscart')
     const { _id, title, details, price, image } = food
     return (
         <div>

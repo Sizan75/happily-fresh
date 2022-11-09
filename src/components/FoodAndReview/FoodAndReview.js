@@ -6,8 +6,10 @@ import { FaUser } from "react-icons/fa";
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 import toast, { Toaster } from 'react-hot-toast';
+import useSetTitle from '../../hooks/useSetTitle';
 
 const FoodAndReview = () => {
+    useSetTitle('food & review')
     const food = useLoaderData()
     const { image, _id, title, price, details } = food
     const { user } = useContext(AuthContext)

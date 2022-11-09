@@ -4,7 +4,9 @@ import { FcGoogle } from "react-icons/fc";
 import signup from '../../assets/login/signup.png'
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import {GoogleAuthProvider } from 'firebase/auth';
+import useSetTitle from '../../hooks/useSetTitle'
 const SignUp = () => {
+    useSetTitle('Signup')
     const { createUser, singInGoogle, updateUserprofile} = useContext(AuthContext)
     const googleProvider = new GoogleAuthProvider()
     const navigate = useNavigate()
