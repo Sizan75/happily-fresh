@@ -5,6 +5,7 @@ import { FaUser } from "react-icons/fa";
 
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
+import toast, { Toaster } from 'react-hot-toast';
 
 const FoodAndReview = () => {
     const food = useLoaderData()
@@ -22,7 +23,8 @@ const FoodAndReview = () => {
             review: review,
             userEmail: user?.email,
             userPhotoURL: user?.photoURL,
-            foodId: _id
+            foodId: _id,
+            foodName:title
         }
         console.log(userReview)
         fetch('http://localhost:5000/reviews', {
@@ -36,7 +38,7 @@ const FoodAndReview = () => {
             .then(data => {
                 console.log(data)
                 if (data.acknowledged) {
-
+                    toast.success('Review added Successfully')
                     form.reset();
 
                 }
@@ -83,7 +85,10 @@ const FoodAndReview = () => {
                                         <textarea name='review' className="textarea textarea-info w-3/4" placeholder="You can give a review of the food here."></textarea>
 
                                         <button className="btn btn-primary w-1/2 ">Post</button>
-
+                                        <Toaster
+  position="top-center"
+  reverseOrder={false}
+/>
                                     </form>
                                 </div>
                                 :
