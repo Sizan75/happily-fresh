@@ -95,7 +95,7 @@ const FoodAndReview = () => {
                     <div>
                         {
                             reviews.map(foodreview =>
-                                <div key={foodreview.foodId}>
+                                <div key={foodreview._id}>
                                     <div className='flex mb-2'>
                                         {foodreview?.userPhotoURL ?
                                             <img className="mask mask-circle w-16 " src={foodreview?.userPhotoURL} alt="" />

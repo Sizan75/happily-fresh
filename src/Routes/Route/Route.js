@@ -8,6 +8,7 @@ import FoodAndReview from "../../components/FoodAndReview/FoodAndReview";
 import Login from "../../components/Login/Login";
 import SignUp from "../../components/SignUp/SignUp";
 import PrivateRoutes from "../PrivateRoute/PrivateRoute";
+import MyReview from "../../components/MyReview/MyReview";
 export const route= createBrowserRouter([
     {
         path:'/',
@@ -25,6 +26,10 @@ export const route= createBrowserRouter([
             {
                 path: '/foodservices',
                 element: <AllFoodServices></AllFoodServices>
+            },
+            {
+                path: '/myreview',
+                element: <MyReview></MyReview>
             },
             {
                 path: '/login',
