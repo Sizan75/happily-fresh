@@ -1,4 +1,5 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
+import { Toaster } from 'react-hot-toast';
 import { FaTimesCircle } from 'react-icons/fa';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
@@ -6,7 +7,35 @@ const MyReviewCard = ({rev,handleDelete}) => {
     const {review,userEmail,userPhotoURL,foodId,foodName,_id}= rev
     const {user}=useContext(AuthContext)
 
+    const [newrev, setNewRev] = useState(rev);
 
+    const handleUpdateUser = event =>{
+        event.preventDefault();
+        
+        fetch(`http://localhost:5000/reviews/${_id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newrev)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.modifiedCount > 0){
+                alert('review updated')
+                console.log(data);
+            }
+            
+        })
+    }
+
+    const handleInputAreaChange = event =>{
+        const field = event.target.name;
+        const value = event.target.value;
+        const updaterev = {...rev}
+        updaterev[field] = value;
+        setNewRev(updaterev);
+    }
 
     return (
        
@@ -29,10 +58,13 @@ const MyReviewCard = ({rev,handleDelete}) => {
         </td>
         <td>
         <h3 className="text-lg ">Food:{foodName}</h3>
-         <br/>Review: {review}
+         <br/>Review:
+         <br/>
+         <textarea  onChange={handleInputAreaChange} defaultValue={review} name='review' className="textarea textarea-info w-3/4" placeholder="You can give a review of the food here."></textarea>
+          
         </td>
         <td>
-        <button className="btn btn-active btn-accent">Update</button>
+        <button onClick={handleUpdateUser} className="btn btn-active btn-accent">Update</button>
         </td>
         
       </tr>

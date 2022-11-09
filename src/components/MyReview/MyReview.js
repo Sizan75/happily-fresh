@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import MyReviewCard from './MyReviewCard';
@@ -26,12 +27,35 @@ const MyReview = () => {
             .then(data => {
                 console.log(data);
                 if (data.deletedCount > 0){
-                    alert('deleted successfully');
+                    toast.success('Review deleted successfully')
                     const remaining = myreviews.filter(rev => rev._id !== id);
                     setMyReviews(remaining);
+                    
                 }
             })
         }
+    }
+
+    const handleStatusUpdate = id => {
+        fetch(`http://localhost:5000/reviews/${id}`, {
+            method: 'PATCH', 
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({status: 'Approved'})
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if(data.modifiedCount > 0) {
+                const remaining = myreviews.filter(rev => rev._id !== id);
+                const approving = myreviews.find(rev => rev._id === id);
+                approving.status = 'Approved'
+
+                const newReviews = [approving, ...remaining];
+                setMyReviews(newReviews);
+            }
+        })
     }
 
     return (
@@ -56,6 +80,7 @@ const MyReview = () => {
                 key={rev._id}
                 rev={rev}
                 handleDelete={handleDelete}
+                handleStatusUpdate={handleStatusUpdate}
                 ></MyReviewCard>)
             
             }
