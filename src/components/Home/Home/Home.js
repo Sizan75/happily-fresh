@@ -3,6 +3,7 @@ import useSetTitle from '../../../hooks/useSetTitle';
 import FoodService from '../FoodService/FoodService';
 import Pricing from '../Pricing/Pricing';
 import Slider from '../Slider/Slider';
+import UserInfo from '../UserInfo/UserInfo';
 
 const Home = () => {
   useSetTitle('Home')
@@ -10,7 +11,8 @@ const Home = () => {
         <div>
           <Slider></Slider>
           <FoodService></FoodService>
-          <Pricing></Pricing>  
+          <Pricing></Pricing>
+          <UserInfo></UserInfo>  
         </div>
     );
 };

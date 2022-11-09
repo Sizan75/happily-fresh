@@ -26,7 +26,7 @@ const FoodAndReview = () => {
             userEmail: user?.email,
             userPhotoURL: user?.photoURL,
             foodId: _id,
-            foodName:title
+            foodName: title
         }
         console.log(userReview)
         fetch('http://localhost:5000/reviews', {
@@ -51,17 +51,17 @@ const FoodAndReview = () => {
         fetch(`http://localhost:5000/reviews?foodId=${_id}`)
             .then(res => res.json())
             .then(data => setReviews(data))
-    }, [_id,reviews])
+    }, [_id, reviews])
 
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 justify-center gap-6 mt-5' >
             <div className="card card-compact w-96 bg-base-100  shadow-xl  mb-5">
-            <PhotoProvider>
-      <PhotoView src={image} className="w-full">
-      <img src={image} className='h-64' alt="food" />
-      </PhotoView>
-    </PhotoProvider>
-                
+                <PhotoProvider>
+                    <PhotoView src={image} className="w-full">
+                        <img src={image} className='h-64' alt="food" />
+                    </PhotoView>
+                </PhotoProvider>
+
                 <div className="card-body">
                     <h2 className="card-title">{title}</h2>
                     <p>{details}</p>
@@ -88,9 +88,9 @@ const FoodAndReview = () => {
 
                                         <button className="btn btn-primary w-1/2 ">Post</button>
                                         <Toaster
-  position="top-center"
-  reverseOrder={false}
-/>
+                                            position="top-center"
+                                            reverseOrder={false}
+                                        />
                                     </form>
                                 </div>
                                 :
