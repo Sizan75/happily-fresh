@@ -6,7 +6,7 @@ const FoodServices = () => {
     useSetTitle('all-foods')
 const [allfood, setAllfood]=useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/foodservices')
+        fetch('https://happily-fresh-server.vercel.app/foodservices')
         .then(res=>res.json())
         .then(data=>setAllfood(data))
     },[])

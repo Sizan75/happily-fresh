@@ -1,8 +1,8 @@
 # Site Name: Happily Fresh
 
-## Client Site Link: https://happily-fresh-3fd6e.web.app/
+## Client Site Link: https://happily-fresh-3fd6e.web.app
 
-## Server Site Link: https://happily-fresh-server-3ezhabmw8-sizan75.vercel.app/
+## Server Site Link: https://happily-fresh-server.vercel.app
 
 ### Details About Project
 

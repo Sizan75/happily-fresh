@@ -19,7 +19,7 @@ const AddFood = () => {
             image
         }
         
-        fetch('http://localhost:5000/foodservices', {
+        fetch('https://happily-fresh-server.vercel.app/foodservices', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -56,7 +56,7 @@ const AddFood = () => {
                 <label className="label text-lg">
                     <span className="label-text">Price</span>
                 </label>
-                <input type="number" name='price' placeholder="" className="input input-bordered input-info w-full " required />
+                <input type="number" step="0.01" name='price' placeholder="" className="input input-bordered input-info w-full " required />
             </div>
             <div class="form-control mb-6">
                 <label className="label text-lg">

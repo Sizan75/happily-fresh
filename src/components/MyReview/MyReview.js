@@ -11,7 +11,7 @@ const MyReview = () => {
     const {user}=useContext(AuthContext)
     const {email}=user
     useEffect(() => {
-        fetch(`http://localhost:5000/myreviews?userEmail=${email}`)
+        fetch(`https://happily-fresh-server.vercel.app/myreviews?userEmail=${email}`)
             .then(res => res.json())
             .then(data =>
                 {   console.log(data)
@@ -22,7 +22,7 @@ const MyReview = () => {
     const handleDelete = id =>{
         const proceed = window.confirm('Are you sure, you want to delete this review');
         if(proceed){
-            fetch(`http://localhost:5000/reviews/${id}`, {
+            fetch(`https://happily-fresh-server.vercel.app/reviews/${id}`, {
                 method: 'DELETE'
             })
             .then(res => res.json())
@@ -39,7 +39,7 @@ const MyReview = () => {
     }
 
     const handleStatusUpdate = id => {
-        fetch(`http://localhost:5000/reviews/${id}`, {
+        fetch(`https://happily-fresh-server.vercel.app/reviews/${id}`, {
             method: 'PATCH', 
             headers: {
                 'content-type': 'application/json'

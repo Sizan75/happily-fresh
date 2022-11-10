@@ -46,7 +46,7 @@ export const route= createBrowserRouter([
             },
             {
                 path: '/foodservice/:id',
-                loader:({params})=>fetch(`http://localhost:5000/foodservices/${params.id}`),
+                loader:({params})=>fetch(`https://happily-fresh-server.vercel.app/foodservices/${params.id}`),
                 element: <FoodAndReview></FoodAndReview>
             }
         ]

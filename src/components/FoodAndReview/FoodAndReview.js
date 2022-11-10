@@ -29,7 +29,7 @@ const FoodAndReview = () => {
             foodName: title
         }
         console.log(userReview)
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://happily-fresh-server.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -48,7 +48,7 @@ const FoodAndReview = () => {
             .catch(er => console.error(er));
     }
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?foodId=${_id}`)
+        fetch(`https://happily-fresh-server.vercel.app/reviews?foodId=${_id}`)
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [_id, reviews])

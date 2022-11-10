@@ -12,7 +12,7 @@ const MyReviewCard = ({ rev, handleDelete }) => {
   const handleUpdateUser = event => {
     event.preventDefault();
 
-    fetch(`http://localhost:5000/reviews/${_id}`, {
+    fetch(`https://happily-fresh-server.vercel.app/reviews/${_id}`, {
       method: 'PUT',
       headers: {
         'content-type': 'application/json'
