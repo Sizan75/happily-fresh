@@ -7,7 +7,9 @@ const FoodServiceCart = ({ food }) => {
     const { image, title, price, details, _id } = food
     return (
         <div>
-            <div className="card card-compact w-96 bg-base-100 shadow-xl">
+            <div data-aos="flip-left"
+     data-aos-easing="ease-out-cubic"
+     data-aos-duration="2000" className="card card-compact w-96 bg-base-100 shadow-xl" >
                 <PhotoProvider>
                     <PhotoView src={image} className="w-full">
                         <img src={image} className='h-64' alt="food" />

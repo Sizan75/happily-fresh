@@ -11,7 +11,7 @@ const FoodService = () => {
         .then(data=>setFoods(data))
     },[])
     return (
-        <div>
+        <div className='mt-8 ml-5'>
             <h3 className='text-4xl font-semibold flex justify-center mt-4'>I provide home made food all around dhaka.</h3>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-5'>
             

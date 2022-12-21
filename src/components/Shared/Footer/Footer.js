@@ -11,9 +11,9 @@ const Footer = () => {
     <p>Copyright © 2022 - All right reserved MD.SAKI</p>
   </div> 
   <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
-    <Link ><FaFacebookF className='w-6 h-6'></FaFacebookF></Link> 
-    <Link ><FaGithub className='w-6 h-6'></FaGithub></Link>
-    <Link ><FaLinkedin className='w-6 h-6'></FaLinkedin></Link>
+    <a href='https://www.facebook.com/sakiuz.zaman.1/' target='_blank' rel='noreferrer'><FaFacebookF className='w-6 h-6'></FaFacebookF></a> 
+    <a href='https://github.com/Sizan75' target='_blank' rel='noreferrer' ><FaGithub className='w-6 h-6'></FaGithub></a>
+    <a href='https://www.linkedin.com/in/md-saki-uz-zaman/' target='_blank' rel='noreferrer'><FaLinkedin className='w-6 h-6'></FaLinkedin></a>
   </div>
 </footer>
         

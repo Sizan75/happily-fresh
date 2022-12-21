@@ -1,4 +1,4 @@
-# Site Name: Happily Fresh
+# Site Name: Alpha Mobile
 
 ## Client Site Link: https://happily-fresh-3fd6e.web.app
 
@@ -6,15 +6,15 @@
 
 ### Details About Project
 
-    * This is a basically a food service site.Here, I provide home made food.
+    * This is a used mobile sell and buy website. There is 3 category of mobile.
 
-    * In the home page there is a slider, a food card section.there you can see 3 food.In card there is a details button by clicking it you can see details and that service review.  
+    * Seller can add product for sell from Add A Product page.It will be added in database.  
     
-    * In that food service details route you can give a review but you have to login first.
+    * After clicking a category he/she will see those product that sellers added.There buyer can see verified user and Book Now button.
 
-    * There will be 2 private route 'my review', 'add food' in my review you can see your all reviews.You can delete,update any review. 
-
-    * In add food route you add food if you are loged in.
+    * After clicking in book now button that product will be booked for that user.Then user need to pay from myorders page.
+    
+    *There is allbuyer and allseller page that only admin can see.Admin can delete a buyer oor a  
 
     * There is a blog page user can see some question answer there.  
 
